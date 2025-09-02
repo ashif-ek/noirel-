@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useAuth } from "./AuthContext"; // ✅ get logged-in user
+import { useAuth } from "./AuthContext"; // get logged-in user
 import Api from "../auth/api";
 
 const CartContext = createContext();
@@ -31,7 +31,7 @@ export function CartProvider({ children }) {
     }
   };
 
-  // ✅ Add product
+  // Add product
   const addToCart = (product) => {
     if (!user) {
       alert("Please login first!");
@@ -51,7 +51,7 @@ export function CartProvider({ children }) {
     syncCart(updatedCart);
   };
 
-  // ✅ Update quantity (+/-)
+  // Update quantity (+/-)
   const updateQuantity = (productId, diff) => {
     let updatedCart = cart.map((item) =>
       item.id === productId
@@ -61,13 +61,13 @@ export function CartProvider({ children }) {
     syncCart(updatedCart);
   };
 
-  // ✅ Remove single item
+  //  Remove single item
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     syncCart(updatedCart);
   };
 
-  // ✅ Clear all items
+  //  Clear all items
   const clearCart = () => {
     syncCart([]);
   };
