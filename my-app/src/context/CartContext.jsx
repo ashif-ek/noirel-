@@ -1,66 +1,86 @@
-// src/context/CartContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
-import { useAuth } from "./AuthContext"; //  get current user
+import { useAuth } from "./AuthContext"; // ✅ get logged-in user
+import Api from "../auth/api";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const { user } = useAuth(); // logged-in user {id, name, email...}
-  const userId = user?.id || "guest"; // fallback for not-logged-in
-  const storageKey = `cart_${userId}`; //  unique per user
+  const { user } = useAuth(); // userId from AuthContext
+  const [cart, setCart] = useState([]);
 
-  const [cart, setCart] = useState(() => {
-    const storedCart = localStorage.getItem(storageKey);
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
-
-  // save to storage whenever cart changes
+  // 🔹 Fetch cart whenever user logs in or refreshes
   useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(cart));
-  }, [cart, storageKey]);
+    if (user) {
+      Api.get(`/users/${user}`)
+        .then((res) => setCart(res.data.cart || []))
+        .catch((err) => console.error("Error fetching cart:", err));
+    } else {
+      setCart([]); // reset when no user
+    }
+  }, [user]);
 
-  const addToCart = (product) => {
-    setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.id === product.id);
-      if (existing) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevCart, { ...product, quantity: 1 }];
+  // 🔹 Sync cart to DB
+  const syncCart = async (updatedCart) => {
+    try {
+      setCart(updatedCart); // Optimistic UI
+      if (user) {
+        await Api.patch(`/users/${user}`, { cart: updatedCart });
       }
-    });
+    } catch (err) {
+      console.error("Error syncing cart:", err);
+    }
   };
 
-  const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  // ✅ Add product
+  const addToCart = (product) => {
+    if (!user) {
+      alert("Please login first!");
+      return;
+    }
+
+    let updatedCart = [...cart];
+    const itemIndex = updatedCart.findIndex((item) => item.id === product.id);
+
+    if (itemIndex >= 0) {
+      // already in cart → increase qty
+      updatedCart[itemIndex].quantity += 1;
+    } else {
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+
+    syncCart(updatedCart);
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const updateQuantity = (id, delta) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + delta } : item
-        )
-        .filter((item) => item.quantity > 0)
+  // ✅ Update quantity (+/-)
+  const updateQuantity = (productId, diff) => {
+    let updatedCart = cart.map((item) =>
+      item.id === productId
+        ? { ...item, quantity: Math.max(1, item.quantity + diff) }
+        : item
     );
+    syncCart(updatedCart);
+  };
+
+  // ✅ Remove single item
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter((item) => item.id !== productId);
+    syncCart(updatedCart);
+  };
+
+  // ✅ Clear all items
+  const clearCart = () => {
+    syncCart([]);
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity }}
+      value={{ cart, addToCart, updateQuantity, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
 }
 
-
-// eslint-disable-next-line react-refresh/only-export-components
 export function useCart() {
   return useContext(CartContext);
 }

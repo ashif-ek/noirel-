@@ -146,6 +146,7 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
 
+
   return (
     <nav className="bg-black/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">

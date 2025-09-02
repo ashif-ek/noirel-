@@ -95,10 +95,6 @@
 
 
 
-
-
-
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Api from "./api";
@@ -116,29 +112,42 @@ export default function Register() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Password not match");
+      alert("Passwords do not match");
       return;
     }
 
     try {
-      // check if email exists
+      // ✅ check if email exists
       const res = await Api.get("/users", { params: { email } });
       if (res.data.length > 0) {
         alert("Email already registered");
         return;
       }
 
-      // add new user
-      const newUser = await Api.post("/users", { name, email, password });
+      // ✅ new user object
+      const userPayload = {
+        name,
+        email,
+        password,
+        cart: [],
+        wishlist: [],
+        orders: [],
+      };
 
-      // log them in immediately using context
+      // ✅ save to DB
+      const newUser = await Api.post("/users", userPayload);
+
+      // ✅ persist userId in localStorage
+      localStorage.setItem("userId", newUser.data.id);
+
+      // ✅ update context
       login(newUser.data.id);
 
-      alert("Registration successful");
-      navigate("/");   
+      alert("Registration successful ");
+      navigate("/");
     } catch (err) {
-      console.error(err);
-      alert("Server error");
+      console.error("Registration error:", err);
+      alert("Server error. Please try again.");
     }
   };
 
@@ -188,7 +197,7 @@ export default function Register() {
 
         <button
           type="submit"
-          className="w-full bg-green-500 text-white py-2 rounded"
+          className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded"
         >
           Register
         </button>

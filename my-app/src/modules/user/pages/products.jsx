@@ -120,6 +120,18 @@
 //   )
 // }
 
+
+
+
+
+
+
+
+
+
+
+
+
 // import axios from "axios"
 // import { useEffect, useState } from "react"
 
@@ -328,6 +340,7 @@ export default function Products() {
                 alert(`${p.name} added to wishlist!`);
               }}
               className="bg-red-500 text-white px-3 py-1 rounded"
+             
             >
                Add to Wishlist
             </button>
