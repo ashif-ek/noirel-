@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import Api from "../auth/api";
 import { useAuth } from "./AuthContext";
 import { toast } from "react-toastify";
@@ -21,7 +21,7 @@ export function WishlistProvider({ children }) {
   }, [user]);
 
   // Sync wishlist with backend
-  const syncWishlist = async (updatedWishlist) => {
+  const syncWishlist = useCallback(async (updatedWishlist) => {
     if (!user?.id) return;
     try {
       setWishlist(updatedWishlist);
@@ -29,9 +29,9 @@ export function WishlistProvider({ children }) {
     } catch (err) {
       console.error("Error syncing wishlist", err);
     }
-  };
+  }, [user]);
 
-  const addToWishlist = (product) => {
+  const addToWishlist = useCallback((product) => {
     if (!user) {
       toast.warn("Please login to add to your wishlist.");
       return;
@@ -39,15 +39,19 @@ export function WishlistProvider({ children }) {
     const exists = wishlist.some((item) => item.id === product.id);
     if (exists) return; // Don't add if it's already there
     syncWishlist([...wishlist, product]);
-  };
+  }, [user, wishlist, syncWishlist]);
 
-  const removeFromWishlist = (productId) => {
+  const removeFromWishlist = useCallback((productId) => {
     syncWishlist(wishlist.filter((item) => item.id !== productId));
-  };
+  }, [wishlist, syncWishlist]);
+
+  const value = useMemo(() => ({
+    wishlist, addToWishlist, removeFromWishlist
+  }), [wishlist, addToWishlist, removeFromWishlist]);
 
   return (
     <WishlistContext.Provider
-      value={{ wishlist, addToWishlist, removeFromWishlist }}
+      value={value}
     >
       {children}
     </WishlistContext.Provider>

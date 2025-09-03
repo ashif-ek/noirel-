@@ -121,7 +121,7 @@
 // // eslint-disable-next-line react-refresh/only-export-components
 // export const useOrders = () => useContext(OrderContext);
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios"; // Import axios for API calls
 import { useAuth } from "./AuthContext";
 import { useCart } from "./CartContext";
@@ -192,11 +192,53 @@ export function OrderProvider({ children }) {
   };
 
   /**
+   * Creates the final order object and saves it.
+   * @param {object} shippingDetails - The shipping details.
+   * @param {object} orderTotals - An object containing both USD and INR totals.
+   * @param {string} paymentId - The Razorpay payment ID.
+   */
+  const createOrder = useCallback(async (shippingDetails, orderTotals, paymentId) => {
+    // --- NEW: Dual-currency order object for accurate records ---
+    const newOrder = {
+      items: [...cart],
+      // Record both totals and the rate used
+      totalUsd: parseFloat(orderTotals.totalUsd.toFixed(2)),
+      totalInr: parseFloat(orderTotals.totalInr.toFixed(2)),
+      exchangeRateUsed: exchangeRate,
+      shipping: shippingDetails,
+      paymentMethod: shippingDetails.paymentMethod,
+      paymentId: paymentId,
+      date: new Date().toISOString(),
+    };
+
+    try {
+      const response = await Api.get(`/users/${user.id}`);
+      const currentUserData = response.data;
+
+      const updatedUserData = {
+        ...currentUserData,
+        orders: [...currentUserData.orders, newOrder],
+        cart: [],
+      };
+
+      await Api.put(`/users/${user.id}`, updatedUserData);
+      clearCart();
+      toast.success("Order placed successfully!");
+      navigate("/order-success");
+    } catch (err) {
+      console.error("Failed to place order:", err);
+      toast.error(
+        "There was an issue placing your order. Please try again."
+      );
+    }
+  }, [cart, user, exchangeRate, clearCart, navigate]);
+
+  /**
    * Place an order.
    * @param {object} shippingDetails - The shipping details.
    * @param {number} totalUsd - The total order amount in USD.
    */
-  const placeOrder = async (shippingDetails, totalUsd) => {
+  const placeOrder = useCallback(async (shippingDetails, totalUsd) => {
     if (!user || cart.length === 0) {
       toast.error(
         "You must be logged in or have items in your cart to place an order."
@@ -254,52 +296,14 @@ export function OrderProvider({ children }) {
       console.error("Payment Failed:", response.error);
     });
     paymentObject.open();
-  };
+  }, [user, cart, exchangeRate, createOrder]);
 
-  /**
-   * Creates the final order object and saves it.
-   * @param {object} shippingDetails - The shipping details.
-   * @param {object} orderTotals - An object containing both USD and INR totals.
-   * @param {string} paymentId - The Razorpay payment ID.
-   */
-  const createOrder = async (shippingDetails, orderTotals, paymentId) => {
-    // --- NEW: Dual-currency order object for accurate records ---
-    const newOrder = {
-      items: [...cart],
-      // Record both totals and the rate used
-      totalUsd: parseFloat(orderTotals.totalUsd.toFixed(2)),
-      totalInr: parseFloat(orderTotals.totalInr.toFixed(2)),
-      exchangeRateUsed: exchangeRate,
-      shipping: shippingDetails,
-      paymentMethod: shippingDetails.paymentMethod,
-      paymentId: paymentId,
-      date: new Date().toISOString(),
-    };
-
-    try {
-      const response = await Api.get(`/users/${user.id}`);
-      const currentUserData = response.data;
-
-      const updatedUserData = {
-        ...currentUserData,
-        orders: [...currentUserData.orders, newOrder],
-        cart: [],
-      };
-
-      await Api.put(`/users/${user.id}`, updatedUserData);
-      clearCart();
-      toast.success("Order placed successfully!");
-      navigate("/order-success");
-    } catch (err) {
-      console.error("Failed to place order:", err);
-      toast.error(
-        "There was an issue placing your order. Please try again."
-      );
-    }
-  };
+  const value = useMemo(() => ({
+    placeOrder
+  }), [placeOrder]);
 
   return (
-    <OrderContext.Provider value={{ placeOrder }}>
+    <OrderContext.Provider value={value}>
       {children}
     </OrderContext.Provider>
   );

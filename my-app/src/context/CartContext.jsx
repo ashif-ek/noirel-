@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 import { useAuth } from "./AuthContext"; 
 import Api from "../auth/api";
 import { toast } from "react-toastify";
@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
     }
   }, [user]);
 
-  const syncCart = async (updatedCart) => {
+  const syncCart = useCallback(async (updatedCart) => {
     try {
       setCart(updatedCart);
       if (user?.id) {
@@ -29,10 +29,9 @@ export function CartProvider({ children }) {
     } catch (err) {
       console.error("Error syncing cart:", err);
     }
-  };
+  }, [user]);
 
-
-  const addToCart = (product) => {
+  const addToCart = useCallback((product) => {
     if (!user) {
       toast("Please login first!");
       return;
@@ -49,32 +48,36 @@ export function CartProvider({ children }) {
     }
 
     syncCart(updatedCart);
-  };
+  }, [cart, user, syncCart]);
 
   // Update quantity (+/-)
-  const updateQuantity = (productId, diff) => {
+  const updateQuantity = useCallback((productId, diff) => {
     let updatedCart = cart.map((item) =>
       item.id === productId
         ? { ...item, quantity: Math.max(1, item.quantity + diff) }
         : item
     );
     syncCart(updatedCart);
-  };
+  }, [cart, syncCart]);
 
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = useCallback((productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     syncCart(updatedCart);
-  };
+  }, [cart, syncCart]);
 
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     syncCart([]);
-  };
+  }, [syncCart]);
+
+  const value = useMemo(() => ({
+    cart, addToCart, updateQuantity, removeFromCart, clearCart
+  }), [cart, addToCart, updateQuantity, removeFromCart, clearCart]);
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, updateQuantity, removeFromCart, clearCart }}
+      value={value}
     >
       {children}
     </CartContext.Provider>
