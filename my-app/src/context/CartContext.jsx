@@ -1,17 +1,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useAuth } from "./AuthContext"; // get logged-in user
+import { useAuth } from "./AuthContext"; 
 import Api from "../auth/api";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const { user } = useAuth(); // userId from AuthContext
+  const { user } = useAuth(); 
   const [cart, setCart] = useState([]);
 
-  // 🔹 Fetch cart whenever user logs in or refreshes
+  // Fetch cart whenever user logs in or refreshes
   useEffect(() => {
-    if (user) {
-      Api.get(`/users/${user}`)
+    if (user?.id) {
+      Api.get(`/users/${user.id}`)
         .then((res) => setCart(res.data.cart || []))
         .catch((err) => console.error("Error fetching cart:", err));
     } else {
@@ -19,12 +19,12 @@ export function CartProvider({ children }) {
     }
   }, [user]);
 
-  // 🔹 Sync cart to DB
+  // Sync cart to DB
   const syncCart = async (updatedCart) => {
     try {
       setCart(updatedCart); // Optimistic UI
-      if (user) {
-        await Api.patch(`/users/${user}`, { cart: updatedCart });
+      if (user?.id) {
+        await Api.patch(`/users/${user.id}`, { cart: updatedCart });
       }
     } catch (err) {
       console.error("Error syncing cart:", err);
@@ -61,13 +61,13 @@ export function CartProvider({ children }) {
     syncCart(updatedCart);
   };
 
-  //  Remove single item
+
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     syncCart(updatedCart);
   };
 
-  //  Clear all items
+
   const clearCart = () => {
     syncCart([]);
   };
@@ -81,6 +81,7 @@ export function CartProvider({ children }) {
   );
 }
 
-export function useCart() {
-  return useContext(CartContext);
-}
+// eslint-disable-next-line react-refresh/only-export-components
+export const useCart = () => useContext(CartContext);
+
+

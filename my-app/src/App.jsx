@@ -60,28 +60,39 @@ import Whishlist from "./modules/user/pages/whishlist";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 import { WishlistProvider } from "./context/WishlistContext";
 
-
+import { ToastContainer } from "react-toastify";
+import Profile from "./modules/user/pages/profile";
+import Search from "./modules/user/pages/search";
+import Checkout from "./modules/user/pages/checkout";
 // Custom wrapper so CartProvider knows the logged-in user
 function AppWithProviders() {
-  const { user } = useAuth(); // get user from AuthContext
 
 
   return (
-    <CartProvider userId={user?.id}> <WishlistProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/carts" element={<Carts />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/whishlist" element={<Whishlist />} /> 
-      </Routes></WishlistProvider>
-    </CartProvider>
+ <>
+      <ToastContainer/>
+      <CartProvider>
+        <WishlistProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/carts" element={<Carts />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/whishlist" element={<Whishlist />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/search" element={<Search />} />
+                         <Route path="/checkout" element={<Checkout />} />
+                        
+                        
+          </Routes>
+        </WishlistProvider>
+      </CartProvider>
+    </>
   );
 }
 

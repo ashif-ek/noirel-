@@ -1,9 +1,7 @@
 import Footer from "../../../components/footer";
 import Hero from "../../../components/hero";
 import Navbar from "../../../components/navbar";
-import Products from "./products";
-import Carts from "./carts";
-import Wishlist from "./whishlist";
+// import Carts from "./carts";
 // import Checkout from "./checkout";
 // import Orders from "./orders";
 // import Products from "./products";
@@ -18,12 +16,9 @@ export default function Home() {
     <Orders/>
     <Products/>
     <Whishlist/> */}
-    <Products/>
     {/* <Checkout/> */}
-    <Carts/>
-    <Wishlist/>
 
-    {/* <Footer/> */}
+    <Footer/>
 
 
       

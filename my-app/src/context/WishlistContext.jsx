@@ -1,49 +1,43 @@
 // src/context/WishlistContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import Api from "../auth/api";
+import { useAuth } from "./AuthContext";
 
 const WishlistContext = createContext();
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
-  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+  const { user } = useAuth(); // Get user from AuthContext
 
-  // Watch for login/logout changes
+  // Fetch wishlist when user changes (login, logout, refresh)
   useEffect(() => {
-    const handleStorageChange = () => {
-      const storedUserId = localStorage.getItem("userId");
-      setUserId(storedUserId);
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
-
-  // Fetch wishlist when userId changes
-  useEffect(() => {
-    if (userId) {
-      Api.get(`/users/${userId}`)
+    if (user?.id) {
+      Api.get(`/users/${user.id}`)
         .then((res) => setWishlist(res.data.wishlist || []))
         .catch((err) => console.error("Error fetching wishlist", err));
     } else {
       setWishlist([]); // clear wishlist on logout
     }
-  }, [userId]);
+  }, [user]);
 
   // Sync wishlist with backend
   const syncWishlist = async (updatedWishlist) => {
-    if (!userId) return;
+    if (!user?.id) return;
     try {
       setWishlist(updatedWishlist);
-      await Api.patch(`/users/${userId}`, { wishlist: updatedWishlist });
+      await Api.patch(`/users/${user.id}`, { wishlist: updatedWishlist });
     } catch (err) {
       console.error("Error syncing wishlist", err);
     }
   };
 
   const addToWishlist = (product) => {
+    if (!user) {
+      alert("Please login to add to your wishlist.");
+      return;
+    }
     const exists = wishlist.some((item) => item.id === product.id);
-    if (exists) return;
+    if (exists) return; // Don't add if it's already there
     syncWishlist([...wishlist, product]);
   };
 
@@ -52,10 +46,12 @@ export function WishlistProvider({ children }) {
   };
 
   return (
-    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist }}>
+    <WishlistContext.Provider
+      value={{ wishlist, addToWishlist, removeFromWishlist }}
+    >
       {children}
     </WishlistContext.Provider>
   );
 }
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const useWishlist = () => useContext(WishlistContext);

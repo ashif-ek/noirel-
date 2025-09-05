@@ -6,21 +6,24 @@
       "email": "ashif@gmail.com",
       "password": "1234567890",
       "role": "user",
-      "cart": [
+      "cart": [],
+      "orders": [
         {
-          "id": "210",
-          "name": "Fleur de Nuit",
-          "description": "A romantic blend of tuberose, sandalwood, and ambergris for an elegant evening scent.",
-          "price": 259.99,
-          "count": 35,
+          "id": "205",
+          "name": "Mystic Jasmine",
+          "description": "An enchanting fragrance of night-blooming jasmine and subtle vanilla undertones.",
+          "price": 229.99,
+          "count": 60,
           "category": "luxury perfumes",
           "images": [
-            "https://images.unsplash.com/photo-1506915925765-ed31516b9080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           ],
           "isActive": true,
           "created_at": "2025-08-28",
-          "quantity": 3
-        },
+          "quantity": 1
+        }
+      ],
+      "wishlist": [
         {
           "id": "201",
           "name": "Oud Royale",
@@ -32,120 +35,6 @@
             "https://plus.unsplash.com/premium_photo-1679064286615-e5e4d4940dfc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           ],
           "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        },
-        {
-          "id": "208",
-          "name": "Velvet Orchid",
-          "description": "A seductive mix of black orchid, rum, and honey for a bold, feminine allure.",
-          "price": 269.99,
-          "count": 30,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        },
-        {
-          "id": "202",
-          "name": "Velour de Rose",
-          "description": "A timeless bouquet of velvety roses blended with soft musk for elegance and charm.",
-          "price": 249.99,
-          "count": 40,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1593487568720-92097fb460fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 2
-        },
-        {
-          "id": "204",
-          "name": "Citrus Élixir",
-          "description": "A refreshing blend of citrus zest and white florals for a modern, energizing scent.",
-          "price": 199.99,
-          "count": 50,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1599342166997-58552e91d9f5?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        },
-        {
-          "id": "203",
-          "name": "Amber Noir",
-          "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-          "price": 279.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        },
-        {
-          "id": "205",
-          "name": "Mystic Jasmine",
-          "description": "An enchanting fragrance of night-blooming jasmine and subtle vanilla undertones.",
-          "price": 229.99,
-          "count": 60,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 2
-        },
-        {
-          "id": "206",
-          "name": "Saffron Veil",
-          "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
-          "price": 349.99,
-          "count": 20,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        }
-      ],
-      "orders": [],
-      "wishlist": [
-        {
-          "id": "202",
-          "name": "Velour de Rose",
-          "description": "A timeless bouquet of velvety roses blended with soft musk for elegance and charm.",
-          "price": 249.99,
-          "count": 40,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1593487568720-92097fb460fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28"
-        },
-        {
-          "id": "203",
-          "name": "Amber Noir",
-          "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-          "price": 279.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
           "created_at": "2025-08-28"
         },
         {
@@ -162,7 +51,9 @@
           "created_at": "2025-08-28"
         }
       ],
-      "created_at": "2025-08-26"
+      "created_at": "2025-08-26",
+      "username": "ashif",
+      "useremail": "ashif@gmail.com"
     },
     {
       "id": "2",
@@ -176,123 +67,35 @@
       "created_at": "2025-08-26"
     },
     {
-      "id": "5f19",
-      "name": "no",
-      "email": "no@gmail.com",
-      "password": "1234567890"
-    },
-    {
-      "id": "9ad5",
-      "name": "unknown",
-      "email": "unknown@gmail.com",
+      "id": "25ca",
+      "name": "arshaq",
+      "email": "arshaq@gmail.com",
       "password": "1234567890",
       "cart": [
         {
-          "id": "210",
-          "name": "Fleur de Nuit",
-          "description": "A romantic blend of tuberose, sandalwood, and ambergris for an elegant evening scent.",
-          "price": 259.99,
-          "count": 35,
+          "id": "201",
+          "name": "Oud Royale",
+          "description": "A deep, smoky fragrance with luxurious oud and amber notes for an unforgettable aura.",
+          "price": 299.99,
+          "count": 25,
           "category": "luxury perfumes",
           "images": [
-            "https://images.unsplash.com/photo-1506915925765-ed31516b9080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://plus.unsplash.com/premium_photo-1679064286615-e5e4d4940dfc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           ],
           "isActive": true,
           "created_at": "2025-08-28",
-          "quantity": 1
+          "quantity": 13
         }
       ],
-      "wishlist": [
-        {
-          "id": "210",
-          "name": "Fleur de Nuit",
-          "description": "A romantic blend of tuberose, sandalwood, and ambergris for an elegant evening scent.",
-          "price": 259.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1506915925765-ed31516b9080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28"
-        }
-      ]
+      "wishlist": [],
+      "orders": []
     },
     {
-      "id": "afac",
-      "name": "iron",
-      "email": "iron@gmail.com",
+      "id": "4761",
+      "name": "                ",
+      "email": "space@gamil.com",
       "password": "1234567890",
-      "role": "user",
-      "cart": [
-        {
-          "id": "210",
-          "name": "Fleur de Nuit",
-          "description": "A romantic blend of tuberose, sandalwood, and ambergris for an elegant evening scent.",
-          "price": 259.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1506915925765-ed31516b9080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        }
-      ],
-      "wishlist": [
-        {
-          "id": "210",
-          "name": "Fleur de Nuit",
-          "description": "A romantic blend of tuberose, sandalwood, and ambergris for an elegant evening scent.",
-          "price": 259.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1506915925765-ed31516b9080?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28"
-        }
-      ],
-      "orders": [],
-      "created_at": "2025-09-02T05:40:37.945Z"
-    },
-    {
-      "id": "bb6c",
-      "name": "man",
-      "email": "man@gmail.com",
-      "password": "1234567890",
-      "cart": [
-        {
-          "id": "207",
-          "name": "Ocean Mist",
-          "description": "A crisp, aquatic fragrance with notes of sea salt, bergamot, and driftwood.",
-          "price": 219.99,
-          "count": 45,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        },
-        {
-          "id": "208",
-          "name": "Velvet Orchid",
-          "description": "A seductive mix of black orchid, rum, and honey for a bold, feminine allure.",
-          "price": 269.99,
-          "count": 30,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "wishlist": [],
       "orders": []
     }
@@ -410,7 +213,7 @@
       "count": 28,
       "category": "luxury perfumes",
       "images": [
-        "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg"
       ],
       "isActive": true,
       "created_at": "2025-08-28"
@@ -427,6 +230,84 @@
       ],
       "isActive": true,
       "created_at": "2025-08-28"
+    },
+    {
+      "id": "211",
+      "name": "Imperial Musk",
+      "description": "A royal musk fragrance with soft leather and ambergris accents.",
+      "price": 319.99,
+      "count": 22,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
+    },
+    {
+      "id": "212",
+      "name": "Golden Sandal",
+      "description": "Creamy sandalwood infused with golden saffron for a luminous trail.",
+      "price": 279.99,
+      "count": 40,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=800&auto=format&fit=crop"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
+    },
+    {
+      "id": "213",
+      "name": "Azure Horizon",
+      "description": "A fresh aquatic scent with marine notes and sparkling citrus.",
+      "price": 199.99,
+      "count": 55,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
+    },
+    {
+      "id": "214",
+      "name": "Noir d'Ébène",
+      "description": "Dark ebony wood blended with smoky resins for a mysterious essence.",
+      "price": 359.99,
+      "count": 18,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
+    },
+    {
+      "id": "215",
+      "name": "Pearl Blossom",
+      "description": "A luminous fragrance of white florals, pear, and soft musk.",
+      "price": 239.99,
+      "count": 42,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
+    },
+    {
+      "id": "216",
+      "name": "Amber Eclipse",
+      "description": "Velvety amber fused with vanilla and spice for an irresistible warmth.",
+      "price": 289.99,
+      "count": 32,
+      "category": "luxury perfumes",
+      "images": [
+        "https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-29"
     }
   ]
 }
