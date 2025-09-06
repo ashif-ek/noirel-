@@ -19,10 +19,9 @@ export function CartProvider({ children }) {
     }
   }, [user]);
 
-  // Sync cart to DB
   const syncCart = async (updatedCart) => {
     try {
-      setCart(updatedCart); // Optimistic UI
+      setCart(updatedCart);
       if (user?.id) {
         await Api.patch(`/users/${user.id}`, { cart: updatedCart });
       }
@@ -31,7 +30,7 @@ export function CartProvider({ children }) {
     }
   };
 
-  // Add product
+
   const addToCart = (product) => {
     if (!user) {
       alert("Please login first!");
@@ -42,7 +41,7 @@ export function CartProvider({ children }) {
     const itemIndex = updatedCart.findIndex((item) => item.id === product.id);
 
     if (itemIndex >= 0) {
-      // already in cart → increase qty
+      // if cart have then ncreese
       updatedCart[itemIndex].quantity += 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });

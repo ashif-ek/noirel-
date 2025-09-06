@@ -1,64 +1,3 @@
-// import React from 'react'
-
-// export default function Footer() {
-//   return (
-//     <div>
-//       <h1>footer</h1>
-//     </div>
-//   )
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default function Footer() {
@@ -68,7 +7,7 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           
-          {/* Brand */}
+
           <div className="space-y-4">
             <h2 className="text-2xl font-serif tracking-[0.3em] text-white font-light">NOIRÉL</h2>
             <p className="text-sm max-w-xs leading-relaxed">
@@ -93,7 +32,6 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Shop */}
           <div>
             <h3 className="text-white text-sm uppercase tracking-widest mb-4 font-light">Shop</h3>
             <ul className="space-y-3">
@@ -105,7 +43,6 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Support */}
           <div>
             <h3 className="text-white text-sm uppercase tracking-widest mb-4 font-light">Support</h3>
             <ul className="space-y-3">
@@ -117,7 +54,6 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Newsletter */}
           <div>
             <h3 className="text-white text-sm uppercase tracking-widest mb-4 font-light">Stay Connected</h3>
             <p className="text-sm mb-4 leading-relaxed">Subscribe to receive updates on new collections and exclusive offers.</p>

@@ -69,7 +69,7 @@ export default function Search() {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={p.images?.[0] || "https://via.placeholder.com/300x300?text=No+Image"}
+                  src={p.images?.[0]}
                   alt={p.name}
                   className="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />

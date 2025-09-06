@@ -1,40 +1,10 @@
-// import { useWishlist } from "../../../context/WishlistContext";
-
-// export default function Wishlist() {
-//   const { wishlist, removeFromWishlist } = useWishlist();
-
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-2xl font-bold mb-4">My Wishlist</h1>
-      
-//       {wishlist.length === 0 ? (
-//         <p>No items in wishlist.</p>
-//       ) : (
-//         <ul className="space-y-4">
-//           {wishlist.map((item) => (
-//             <li key={item.id} className="flex justify-between items-center border p-3 rounded">
-//               <span>{item.name} - ${item.price}</span>
-//               <button 
-//                 onClick={() => removeFromWishlist(item.id)} 
-//                 className="bg-red-500 text-white px-3 py-1 rounded"
-//               >
-//                 Remove
-//               </button>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// }
-
-
 
 import { useWishlist } from "../../../context/WishlistContext";
-import { useCart } from "../../../context/CartContext"; // Added to allow adding items to cart
-import { Link } from "react-router-dom"; // Assuming you use React Router
+import { useCart } from "../../../context/CartContext";
+import { Link } from "react-router-dom"; 
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
+import { toast } from "react-toastify";
 
 
 export default function Wishlist() {
@@ -83,7 +53,7 @@ export default function Wishlist() {
                     <button
                       onClick={() => {
                         addToCart(item);
-                        alert(`${item.name} added to cart!`);
+                        toast.info(`${item.name} added to cart!`);
                       }}
                       className="flex-1 text-xs tracking-widest uppercase border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300"
                     >

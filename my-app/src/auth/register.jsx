@@ -1,94 +1,4 @@
 
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import Api from "./api";
-
-// export default function Register() {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [confirmPassword, setConfirmPassword] = useState("");
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (password !== confirmPassword) {
-//       alert("Password not match");
-//       return;
-//     }
-
-//     const res = await Api.get("/users", { params: { email } });
-//     if (res.data.length > 0) {
-//       alert("Email already registered");
-//       return;
-//     }
-
-//     const newUser = {
-//       name,
-//       email,
-//       password,
-//       cart: [],
-//       wishlist: [],
-//       orders: [],
-//     };
-
-//     await Api.post("/users", newUser);
-
-
-//     alert("registerd sucessfully, now plz loggin");
-//     navigate("/login");
-//   };
-
-//   return (
-//     <div >
-//       <form
-//         onSubmit={handleSubmit}
-//       >
-//         <h2 className="text-xl font-bold text-center">Register</h2>
-
-//         <input
-//           type="text"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//           placeholder="Name"
-//           required
-//         />
-
-//         <input
-//           type="email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           placeholder="Email"
-//           required
-//         />
-
-//         <input
-//           type="password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           placeholder="Password"
-//           required
-//         />
-
-//         <input
-//           type="password"
-//           value={confirmPassword}
-//           onChange={(e) => setConfirmPassword(e.target.value)}
-//           placeholder="Confirm Password"
-//           required
-//         />
-
-//         <button
-//           type="submit"
-//         >
-//           Register
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -218,3 +128,137 @@ export default function Register() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import Api from "./api";
+
+// export default function Register() {
+//   const [name, setName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [confirmPassword, setConfirmPassword] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     if (password !== confirmPassword) {
+//       alert("Password not match");
+//       return;
+//     }
+
+//     const res = await Api.get("/users", { params: { email } });
+//     if (res.data.length > 0) {
+//       alert("Email already registered");
+//       return;
+//     }
+
+//     const newUser = {
+//       name,
+//       email,
+//       password,
+//       cart: [],
+//       wishlist: [],
+//       orders: [],
+//     };
+
+//     await Api.post("/users", newUser);
+
+
+//     alert("registerd sucessfully, now plz loggin");
+//     navigate("/login");
+//   };
+
+//   return (
+//     <div >
+//       <form
+//         onSubmit={handleSubmit}
+//       >
+//         <h2 className="text-xl font-bold text-center">Register</h2>
+
+//         <input
+//           type="text"
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//           placeholder="Name"
+//           required
+//         />
+
+//         <input
+//           type="email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           placeholder="Email"
+//           required
+//         />
+
+//         <input
+//           type="password"
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
+//           placeholder="Password"
+//           required
+//         />
+
+//         <input
+//           type="password"
+//           value={confirmPassword}
+//           onChange={(e) => setConfirmPassword(e.target.value)}
+//           placeholder="Confirm Password"
+//           required
+//         />
+
+//         <button
+//           type="submit"
+//         >
+//           Register
+//         </button>
+//       </form>
+//     </div>
+//   );
+// }

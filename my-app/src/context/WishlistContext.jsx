@@ -1,7 +1,7 @@
-// src/context/WishlistContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import Api from "../auth/api";
 import { useAuth } from "./AuthContext";
+import { toast } from "react-toastify";
 
 const WishlistContext = createContext();
 
@@ -33,7 +33,7 @@ export function WishlistProvider({ children }) {
 
   const addToWishlist = (product) => {
     if (!user) {
-      alert("Please login to add to your wishlist.");
+      toast.warn("Please login to add to your wishlist.");
       return;
     }
     const exists = wishlist.some((item) => item.id === product.id);
