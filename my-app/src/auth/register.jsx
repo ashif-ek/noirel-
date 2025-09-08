@@ -37,7 +37,7 @@ export default function Register() {
     await Api.post("/users", newUser);
 
     toast.success("Registered successfully");
-    toast.success("now please login")
+    toast.success("please login with username")
     navigate("/login");
   };
 
