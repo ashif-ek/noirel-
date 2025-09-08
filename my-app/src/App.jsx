@@ -46,6 +46,7 @@ function AppWithProviders() {
               <Route path="/ourstory" element={<OurStory />} />
 
               <Route path="/checkout" element={<Checkout />} />
+
             </Route>
 
             <Route path="*" element={<NotFound />} />

@@ -22,6 +22,30 @@ export default function Profile() {
     }
   }, [user, navigate]);
 
+
+  
+const handleClearOrders = async () => {
+  if (!user?.id) return;
+
+  try {
+    // Fetch current user
+    const response = await Api.get(`/users/${user.id}`);
+    const currentUserData = response.data;
+
+    // Update user with empty orders array
+    const updatedUserData = {
+      ...currentUserData,
+      orders: [],
+    };
+
+    await Api.put(`/users/${user.id}`, updatedUserData);
+
+    setOrders([]); // Clear orders locally
+  } catch (err) {
+    console.error("Error clearing orders:", err);
+  }
+};
+
   // --- FIX 1: Correctly fetch orders from the user object ---
   useEffect(() => {
     if (user?.id) {
@@ -117,12 +141,30 @@ export default function Profile() {
             )}
 
             {/* --- FIX 2: Correctly render the orders and the items within them --- */}
+
+            {orders.length > 0 && (
+              
+  <div className="text-center pt-6">
+    <button
+      onClick={handleClearOrders}
+      className="border border-red-500/50 text-red-500 px-6 py-2 text-xs tracking-widest uppercase hover:bg-red-500/20 transition-colors"
+    >
+      Clear Order History
+    </button>
+  </div>
+)}
+<br />
+<br />
+
             {activeTab === "orders" && (
               <div className="space-y-8">
                 {orders.length === 0 ? (
                   <div className="text-center text-gray-500 py-16 border border-white/10 rounded-lg">
                     <p>You have not placed any orders yet.</p>
                   </div>
+
+                  
+
                 ) : (
                   // Show most recent orders first
                   [...orders].reverse().map((order) => (
@@ -142,6 +184,7 @@ export default function Profile() {
                           <p className="text-xl font-serif text-white">₹{order.total.toFixed(2)}</p>
                         </div>
                       </div>
+                      
 
                       {/* Order Items: Loops through items within the order */}
                       <div className="p-4 space-y-4">

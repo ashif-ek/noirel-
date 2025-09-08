@@ -1,14 +1,11 @@
-
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "../../../context/CartContext";
 import { useOrders } from "../../../context/OrderContext";
 import { useAuth } from "../../../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import Navbar from "../../../components/navbar";
-import Footer from "../../../components/footer";
+import Footer from "../../../components/footer"
 import { toast } from "react-toastify";
-
 // A new helper component to create visually distinct sections for the form.
 const FormSection = ({ title, children }) => (
   <section className="bg-gray-900/50 border border-white/10 rounded-lg p-6 md:p-8">
@@ -26,13 +23,20 @@ export default function Checkout() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const [shippingDetails, setShippingDetails] = useState({
-    fullName: user?.name || "",
+    fullName: "",
     address: "",
     city: "",
     postalCode: "",
     country: "",
     paymentMethod: "credit_card",
   });
+  
+  useEffect(() => {
+    if (user) {
+        setShippingDetails(prev => ({ ...prev, fullName: user.name || "" }));
+    }
+  }, [user]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,8 +45,9 @@ export default function Checkout() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Object.values(shippingDetails).some(field => field === "")) {
-      toast.warn("Please fill out all shipping fields.");
+    const { fullName, address, city, postalCode, country } = shippingDetails;
+    if (!fullName || !address || !city || !postalCode || !country) {
+      toast.warn("Please fill all fields.");
       return;
     }
     await placeOrder(shippingDetails, total);
@@ -62,40 +67,36 @@ export default function Checkout() {
             <div className="w-20 h-px bg-white/40 mx-auto"></div>
           </div>
 
-          {/* Key Change: The main grid now separates the form and summary into distinct scrolling contexts */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
             
-            {/* --- Form Column (Scrollable) --- */}
             <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-8">
               <FormSection title="Shipping Address">
                 <div className="space-y-6">
-                    <InputField label="Full Name" name="fullName" value={shippingDetails.fullName} onChange={handleInputChange} />
-                    <InputField label="Address" name="address" value={shippingDetails.address} onChange={handleInputChange} placeholder="123 Perfume Lane"/>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <InputField label="City" name="city" value={shippingDetails.city} onChange={handleInputChange} placeholder="Scent City" />
-                        <InputField label="Postal Code" name="postalCode" value={shippingDetails.postalCode} onChange={handleInputChange} placeholder="12345" />
-                    </div>
-                    <InputField label="Country" name="country" value={shippingDetails.country} onChange={handleInputChange} placeholder="Fragrance Land"/>
+                  <InputField label="Full Name" name="fullName" value={shippingDetails.fullName} onChange={handleInputChange} />
+                  <InputField label="Address" name="address" value={shippingDetails.address} onChange={handleInputChange} placeholder="123 Perfume Lane"/>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <InputField label="City" name="city" value={shippingDetails.city} onChange={handleInputChange} placeholder="Scent City" />
+                    <InputField label="Postal Code" name="postalCode" value={shippingDetails.postalCode} onChange={handleInputChange} placeholder="12345" />
+                  </div>
+                  <InputField label="Country" name="country" value={shippingDetails.country} onChange={handleInputChange} placeholder="Fragrance Land"/>
                 </div>
               </FormSection>
 
               <FormSection title="Payment Method">
                 <div className="space-y-4">
-                  <RadioOption label="Credit Card" name="paymentMethod" value="credit_card" checked={shippingDetails.paymentMethod === 'credit_card'} onChange={handleInputChange} />
-                  <RadioOption label="PayPal" name="paymentMethod" value="paypal" checked={shippingDetails.paymentMethod === 'paypal'} onChange={handleInputChange} />
+                  <RadioOption label="Credit Card / UPI / and more" name="paymentMethod" value="credit_card" checked={shippingDetails.paymentMethod === 'credit_card'} onChange={handleInputChange} />
+                  {/* You can add more payment methods here if needed, but Razorpay handles many */}
                 </div>
               </FormSection>
               
-              {/* Key Change: The main action button is now at the end of the form flow */}
               <button
                 type="submit"
                 className="w-full bg-white text-black text-sm tracking-widest uppercase px-6 py-4 hover:bg-gray-200 transition-colors duration-300 rounded-md"
               >
-                Place Order
+                Proceed to Payment
               </button>
             </form>
 
-            {/* --- Order Summary Column (Sticky) --- */}
             <div className="lg:col-span-2">
               <div className="bg-gray-900/50 border border-white/10 rounded-lg p-6 sticky top-28">
                 <h2 className="text-2xl mb-6 tracking-wide border-b border-white/10 pb-4">
@@ -136,7 +137,7 @@ export default function Checkout() {
   );
 }
 
-// Helper components for cleaner JSX (no changes needed here)
+// Helper components for cleaner JSX
 const InputField = ({ label, ...props }) => (
   <div>
     <label htmlFor={props.name} className="block text-sm text-gray-400 mb-2">{label}</label>
@@ -150,3 +151,4 @@ const RadioOption = ({ label, ...props }) => (
         <span className="ml-4 text-sm">{label}</span>
     </label>
 );
+
