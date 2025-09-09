@@ -14,6 +14,8 @@ export default function ProtectedRoute() {
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-
+if (user.role !== "user"){
+  return <Navigate to="/admin" replace />
+}
   return <Outlet />;
 }

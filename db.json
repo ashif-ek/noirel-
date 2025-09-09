@@ -5,7 +5,6 @@
       "name": "ashif",
       "email": "ashif@gmail.com",
       "password": "1234567890",
-      "role": "user",
       "cart": [],
       "orders": [
         {
@@ -165,6 +164,80 @@
           "paymentMethod": "credit_card",
           "paymentId": "pay_RF2XT8JGl7tzs2",
           "date": "2025-09-08T08:23:09.682Z"
+        },
+        {
+          "items": [
+            {
+              "id": "203",
+              "name": "Amber Noir",
+              "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
+              "price": 279.99,
+              "count": 35,
+              "category": "luxury perfumes",
+              "images": [
+                "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-28",
+              "quantity": 1
+            }
+          ],
+          "total": 279.99,
+          "shipping": {
+            "fullName": "ashif",
+            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
+            "city": "Chelambra",
+            "postalCode": "673634",
+            "country": "India",
+            "paymentMethod": "credit_card"
+          },
+          "paymentMethod": "credit_card",
+          "paymentId": "pay_RFSWpCZVYisNyH",
+          "date": "2025-09-09T09:48:37.397Z"
+        },
+        {
+          "items": [
+            {
+              "id": "206",
+              "name": "Saffron Veil",
+              "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
+              "price": 349.99,
+              "count": 20,
+              "category": "luxury perfumes",
+              "images": [
+                "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-28",
+              "quantity": 1
+            },
+            {
+              "id": "211",
+              "name": "Imperial Musk",
+              "description": "A royal musk fragrance with soft leather and ambergris accents.",
+              "price": 319.99,
+              "count": 22,
+              "category": "luxury perfumes",
+              "images": [
+                "https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-29",
+              "quantity": 1
+            }
+          ],
+          "total": 669.98,
+          "shipping": {
+            "fullName": "ashif",
+            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
+            "city": "Chelambra",
+            "postalCode": "673634",
+            "country": "India",
+            "paymentMethod": "credit_card"
+          },
+          "paymentMethod": "credit_card",
+          "paymentId": "pay_RFTvyvpoelxZ6t",
+          "date": "2025-09-09T11:11:07.869Z"
         }
       ],
       "wishlist": [
@@ -180,6 +253,19 @@
           ],
           "isActive": true,
           "created_at": "2025-08-28"
+        },
+        {
+          "id": "206",
+          "name": "Saffron Veil",
+          "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
+          "price": 349.99,
+          "count": 20,
+          "category": "luxury perfumes",
+          "images": [
+            "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-28"
         }
       ],
       "created_at": "2025-08-26",
@@ -192,10 +278,24 @@
       "email": "admin@example.com",
       "password": "1234567890",
       "role": "admin",
-      "cart": [],
+      "cart": [
+        {
+          "id": "203",
+          "name": "Amber Noir",
+          "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
+          "price": 279.99,
+          "count": 35,
+          "category": "luxury perfumes",
+          "images": [
+            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-28",
+          "quantity": 1
+        }
+      ],
       "orders": [],
-      "wishlist": [],
-      "created_at": "2025-08-26"
+      "wishlist": []
     },
     {
       "id": "04d4",
@@ -208,19 +308,6 @@
     }
   ],
   "products": [
-    {
-      "id": "201",
-      "name": "Oud Royale",
-      "description": "A deep, smoky fragrance with luxurious oud and amber notes for an unforgettable aura.",
-      "price": 299.99,
-      "count": 25,
-      "category": "luxury perfumes",
-      "images": [
-        "https://plus.unsplash.com/premium_photo-1679064286615-e5e4d4940dfc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ],
-      "isActive": true,
-      "created_at": "2025-08-28"
-    },
     {
       "id": "202",
       "name": "Velour de Rose",
@@ -415,6 +502,19 @@
       ],
       "isActive": true,
       "created_at": "2025-08-29"
+    },
+    {
+      "id": "1757402685861",
+      "name": "xluis",
+      "description": "its special french frarent",
+      "price": 499.99,
+      "count": 20,
+      "category": "luxury ",
+      "images": [
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fperfume&psig=AOvVaw3i82eoK_7J-Lilh0DnBmji&ust=1757489016044000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIjJ2vWSy48DFQAAAAAdAAAAABAL"
+      ],
+      "isActive": true,
+      "created_at": "2025-09-09"
     }
   ]
 }

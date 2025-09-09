@@ -22,6 +22,13 @@ import Checkout from "./modules/user/pages/checkout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./modules/user/pages/notfound";
 import OurStory from "./modules/user/pages/ourStory";
+import Adminhome from "./modules/admin/adminhome";
+import AdminProducts from "./modules/admin/admin-products";
+import AdminUsers from "./modules/admin/admin-user";
+import UserDetails from "./modules/admin/user-details";
+import AdminRoute from "./components/AdminRoute";
+import AdminDashboard from "./modules/admin/dashboard";
+import AdminLayout from "./modules/admin/adminLayout";
 
 function AppWithProviders() {
   return (
@@ -38,16 +45,43 @@ function AppWithProviders() {
             <Route path="/products" element={<Products />} />
             <Route path="/search" element={<Search />} />
 
-            <Route element={<ProtectedRoute />}>
-              <Route path="/carts" element={<Carts />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/whishlist" element={<Whishlist />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/ourstory" element={<OurStory />} />
+<Route element={<ProtectedRoute />}>
+    <Route path="/carts" element={<Carts />} />
+    <Route path="/orders" element={<Orders />} />
+    <Route path="/whishlist" element={<Whishlist />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="/ourstory" element={<OurStory />} />
+    <Route path="/checkout" element={<Checkout />} />
+</Route>
 
-              <Route path="/checkout" element={<Checkout />} />
 
-            </Route>
+
+
+
+
+{/* <Route path="/admin" element={<AdminRoute />}>
+   <Route index element={<Adminhome />} />
+       <Route path="slide" element={<AdminDashboard/>}/>
+
+   <Route path="products" element={<AdminProducts />} />
+   <Route path="users" element={<AdminUsers />} />
+   <Route path="users/:id" element={<UserDetails />} />
+ </Route> */}
+
+ <Route path="/admin" element={<AdminRoute />}>
+  <Route element={<AdminLayout />}>
+    <Route index element={<AdminDashboard />} />
+    {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
+    <Route path="products" element={<AdminProducts />} />
+    <Route path="users" element={<AdminUsers />} />
+    <Route path="users/:id" element={<UserDetails />} />
+  </Route>
+</Route>
+
+
+
+
+
 
             <Route path="*" element={<NotFound />} />
           </Routes>
