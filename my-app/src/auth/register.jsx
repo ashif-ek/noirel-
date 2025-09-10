@@ -29,9 +29,12 @@ export default function Register() {
       name,
       email,
       password,
+      role: "user",
+      isBlocked: false,
       cart: [],
       wishlist: [],
       orders: [],
+      createdAt: new Date().toISOString(),
     };
 
     await Api.post("/users", newUser);

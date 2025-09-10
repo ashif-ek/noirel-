@@ -11,40 +11,48 @@ export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const res = await Api.get("/users", {
-    params: { name, password },
-  });
+  try {
+    const res = await Api.get("/users", {
+      params: { name, password },
+    });
 
-  const user = res.data[0];
+    const user = res.data[0];
 
-  if (user) {
-   login({ id: user.id, username: user.name, useremail: user.email });
-   navigate("/");
-   toast.success("successfully logined");
-   // set role: if not explicitly admin → user
-   const role = user.role === "admin" ? "admin" : "user";
+    if (!user) {
+      toast.warn("Invalid username or password");
+      return;
+    }
 
-   login({
-     id: user.id,
-     username: user.name,
-     useremail: user.email,
-     role,
-   });
-   // redirect admins to /admin, others to home
-  if (role === "admin") {
-     navigate("/admin");
-   } else {
-     navigate("/");
-   }
+    if (user.isBlocked) {
+      toast.error("ur acoount are blocked, contact us");
+      return;
+    }
 
-  toast.success(`Logged in as ${role}`);
-  } else {
-    toast.warn("Invalid username or password");
+    const role = user.role === "admin" ? "admin" : "user";
+
+    login({
+      id: user.id,
+      username: user.name,
+      useremail: user.email,
+      role,
+    });
+
+    if (role === "admin") {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+
+    toast.success(`Logged in as ${role}`);
+  } catch (err) {
+    console.error("Login error:", err);
+    toast.error("Something went wrong. Please try later.");
   }
 };
+
 
 
   return (

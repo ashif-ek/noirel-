@@ -207,6 +207,21 @@ const handleClearOrders = async () => {
                           </div>
                         ))}
                       </div>
+
+
+
+<div className="p-4 border-t border-white/10 text-sm text-gray-300 space-y-1">
+  <p><span className="font-semibold">Ship to:</span> {order.shipping.fullName}</p>
+  <p>{order.shipping.address},
+     {order.shipping.city},
+      {order.shipping.postalCode}</p>
+  <p>{order.shipping.country}</p>
+  <p><span className="font-semibold">Payment:</span> {order.paymentMethod} ({order.paymentId})</p>
+</div>
+
+
+
+
                     </div>
                   ))
                 )}
