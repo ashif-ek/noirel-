@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Api from "../../auth/api";
+import { toast } from "react-toastify";
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
@@ -26,7 +27,7 @@ export default function AdminProducts() {
   // Add product
   const handleAdd = async () => {
     if (!newProduct.name || !newProduct.price || !newProduct.category) {
-      alert("Please fill required fields (Name, Price, Category)");
+      toast("Please fill all fields");
       return;
     }
 
@@ -52,6 +53,8 @@ export default function AdminProducts() {
       category: "",
       imageUrl: "",
       isActive: true,
+      createdAt: new Date().toISOString(),
+
     });
 
     fetchProducts();

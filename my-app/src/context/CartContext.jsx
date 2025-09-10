@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext"; 
 import Api from "../auth/api";
+import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
@@ -33,7 +34,7 @@ export function CartProvider({ children }) {
 
   const addToCart = (product) => {
     if (!user) {
-      alert("Please login first!");
+      toast("Please login first!");
       return;
     }
 
