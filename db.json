@@ -21,21 +21,7 @@
               ],
               "isActive": true,
               "created_at": "2025-08-28",
-              "quantity": 46
-            },
-            {
-              "id": "203",
-              "name": "Amber Noir",
-              "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-              "price": 279.99,
-              "count": 35,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 20
+              "quantity": 1
             },
             {
               "id": "204",
@@ -49,7 +35,7 @@
               ],
               "isActive": true,
               "created_at": "2025-08-28",
-              "quantity": 13
+              "quantity": 1
             },
             {
               "id": "205",
@@ -63,96 +49,24 @@
               ],
               "isActive": true,
               "created_at": "2025-08-28",
-              "quantity": 16
+              "quantity": 1
             },
             {
-              "id": "206",
-              "name": "Saffron Veil",
-              "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
-              "price": 349.99,
-              "count": 20,
+              "id": "216",
+              "name": "Amber Eclipse",
+              "description": "Velvety amber fused with vanilla and spice for an irresistible warmth.",
+              "price": 289.99,
+              "count": 32,
               "category": "luxury perfumes",
               "images": [
-                "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 12
-            },
-            {
-              "id": "207",
-              "name": "Ocean Mist",
-              "description": "A crisp, aquatic fragrance with notes of sea salt, bergamot, and driftwood.",
-              "price": 219.99,
-              "count": 45,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 26
-            },
-            {
-              "id": "212",
-              "name": "Golden Sandal",
-              "description": "Creamy sandalwood infused with golden saffron for a luminous trail.",
-              "price": 279.99,
-              "count": 40,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=800&auto=format&fit=crop"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-29",
-              "quantity": 20
-            },
-            {
-              "id": "211",
-              "name": "Imperial Musk",
-              "description": "A royal musk fragrance with soft leather and ambergris accents.",
-              "price": 319.99,
-              "count": 22,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-29",
-              "quantity": 18
-            }
-          ],
-          "total": 44658.29,
-          "shipping": {
-            "fullName": "as",
-            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
-            "city": "Chelambra",
-            "postalCode": "673634",
-            "country": "India",
-            "paymentMethod": "credit_card"
-          },
-          "paymentMethod": "credit_card",
-          "paymentId": "pay_RF2FbNIfGOioDP",
-          "date": "2025-09-08T08:06:13.664Z"
-        },
-        {
-          "items": [
-            {
-              "id": "213",
-              "name": "Azure Horizon",
-              "description": "A fresh aquatic scent with marine notes and sparkling citrus.",
-              "price": 199.99,
-              "count": 55,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg"
+                "https://images.pexels.com/photos/1961794/pexels-photo-1961794.jpeg"
               ],
               "isActive": true,
               "created_at": "2025-08-29",
               "quantity": 1
             }
           ],
-          "total": 199.99,
+          "total": 969.96,
           "shipping": {
             "fullName": "ashif",
             "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
@@ -162,142 +76,8 @@
             "paymentMethod": "credit_card"
           },
           "paymentMethod": "credit_card",
-          "paymentId": "pay_RF2XT8JGl7tzs2",
-          "date": "2025-09-08T08:23:09.682Z"
-        },
-        {
-          "items": [
-            {
-              "id": "203",
-              "name": "Amber Noir",
-              "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-              "price": 279.99,
-              "count": 35,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 1
-            }
-          ],
-          "total": 279.99,
-          "shipping": {
-            "fullName": "ashif",
-            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
-            "city": "Chelambra",
-            "postalCode": "673634",
-            "country": "India",
-            "paymentMethod": "credit_card"
-          },
-          "paymentMethod": "credit_card",
-          "paymentId": "pay_RFSWpCZVYisNyH",
-          "date": "2025-09-09T09:48:37.397Z"
-        },
-        {
-          "items": [
-            {
-              "id": "206",
-              "name": "Saffron Veil",
-              "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
-              "price": 349.99,
-              "count": 20,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 1
-            },
-            {
-              "id": "211",
-              "name": "Imperial Musk",
-              "description": "A royal musk fragrance with soft leather and ambergris accents.",
-              "price": 319.99,
-              "count": 22,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-29",
-              "quantity": 1
-            }
-          ],
-          "total": 669.98,
-          "shipping": {
-            "fullName": "ashif",
-            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
-            "city": "Chelambra",
-            "postalCode": "673634",
-            "country": "India",
-            "paymentMethod": "credit_card"
-          },
-          "paymentMethod": "credit_card",
-          "paymentId": "pay_RFTvyvpoelxZ6t",
-          "date": "2025-09-09T11:11:07.869Z"
-        },
-        {
-          "items": [
-            {
-              "id": "203",
-              "name": "Amber Noir",
-              "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-              "price": 279.99,
-              "count": 35,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 1
-            }
-          ],
-          "total": 279.99,
-          "shipping": {
-            "fullName": "ashif",
-            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
-            "city": "Chelambra",
-            "postalCode": "673634",
-            "country": "India",
-            "paymentMethod": "credit_card"
-          },
-          "paymentMethod": "credit_card",
-          "paymentId": "pay_RFl1QD1doehjs1",
-          "date": "2025-09-10T03:54:02.079Z"
-        },
-        {
-          "items": [
-            {
-              "id": "203",
-              "name": "Amber Noir",
-              "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-              "price": 279.99,
-              "count": 35,
-              "category": "luxury perfumes",
-              "images": [
-                "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-28",
-              "quantity": 4
-            }
-          ],
-          "total": 1119.96,
-          "shipping": {
-            "fullName": "ashif",
-            "address": "National Highway 66 near Calicut University Kakkanchery Chelembra PO, Dt, Thenhipalam, Kerala 673634",
-            "city": "Chelambra",
-            "postalCode": "673634",
-            "country": "India",
-            "paymentMethod": "credit_card"
-          },
-          "paymentMethod": "credit_card",
-          "paymentId": "pay_RFreBZMWY2JyuF",
-          "date": "2025-09-10T10:22:58.168Z"
+          "paymentId": "pay_RGab5P23G4fcfp",
+          "date": "2025-09-12T06:21:13.161Z"
         }
       ],
       "wishlist": [
@@ -315,19 +95,33 @@
           "created_at": "2025-08-28"
         },
         {
-          "id": "206",
-          "name": "Saffron Veil",
-          "description": "A luxurious blend of rare saffron, patchouli, and sandalwood for a regal, warm scent.",
-          "price": 349.99,
-          "count": 20,
+          "id": "205",
+          "name": "Mystic Jasmine",
+          "description": "An enchanting fragrance of night-blooming jasmine and subtle vanilla undertones.",
+          "price": 229.99,
+          "count": 60,
           "category": "luxury perfumes",
           "images": [
-            "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           ],
           "isActive": true,
           "created_at": "2025-08-28"
+        },
+        {
+          "id": "214",
+          "name": "Noir d'Ébène",
+          "description": "Dark ebony wood blended with smoky resins for a mysterious essence.",
+          "price": 359.99,
+          "count": 18,
+          "category": "luxury perfumes",
+          "images": [
+            "https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-29"
         }
       ],
+      "role": "user",
       "created_at": "2025-08-26",
       "username": "ashif",
       "useremail": "ashif@gmail.com",
@@ -338,57 +132,115 @@
       "name": "Admin",
       "email": "admin@example.com",
       "password": "1234567890",
-      "role": "admin",
-      "cart": [
-        {
-          "id": "203",
-          "name": "Amber Noir",
-          "description": "Rich amber and exotic spices crafted into a warm, sensual fragrance.",
-          "price": 279.99,
-          "count": 35,
-          "category": "luxury perfumes",
-          "images": [
-            "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-28",
-          "quantity": 1
-        }
-      ],
-      "orders": [],
-      "wishlist": []
+      "role": "admin"
     },
     {
-      "id": "04d4",
-      "name": "unknown",
-      "email": "unknown@gmail.com",
-      "password": "1234567890",
-      "cart": [],
-      "wishlist": [],
-      "orders": []
-    },
-    {
-      "id": "10fe",
-      "name": "role",
-      "email": "role@gmail.com",
-      "password": "1234567890",
-      "role": "user",
-      "isBlocked": false,
-      "cart": [],
-      "wishlist": [],
-      "orders": []
-    },
-    {
-      "id": "6487",
-      "name": "date",
-      "email": "date@gmail.com",
+      "id": "bb72",
+      "name": "arshaq",
+      "email": "arshaq@gmail.com",
       "password": "1234567890",
       "role": "user",
       "isBlocked": false,
       "cart": [],
       "wishlist": [],
       "orders": [],
-      "createdAt": "2025-09-10T09:14:20.437Z"
+      "createdAt": "2025-09-12T05:58:32.198Z"
+    },
+    {
+      "id": "48a1",
+      "name": "rahees",
+      "email": "rahees@gamil.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T05:59:21.621Z"
+    },
+    {
+      "id": "46b3",
+      "name": "sanajay",
+      "email": "sanjay@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T06:00:44.263Z"
+    },
+    {
+      "id": "9099",
+      "name": "shameel",
+      "email": "shameel@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T06:01:13.672Z"
+    },
+    {
+      "id": "49c0",
+      "name": "sreenand",
+      "email": "sreenand@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T06:03:00.065Z"
+    },
+    {
+      "id": "eb7b",
+      "name": "nirooz",
+      "email": "nirooz@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T06:03:37.068Z"
+    },
+    {
+      "id": "2c3f",
+      "name": "nibraz",
+      "email": "nibraz@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T06:04:10.370Z"
+    },
+    {
+      "id": "54ff",
+      "name": "joe",
+      "email": "joe@gamil.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": true,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T07:57:11.588Z"
+    },
+    {
+      "id": "90a3",
+      "name": "due",
+      "email": "due@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "isBlocked": true,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "createdAt": "2025-09-12T07:57:33.884Z"
     }
   ],
   "products": [
@@ -415,7 +267,7 @@
       "images": [
         "https://images.unsplash.com/photo-1623742310401-d8057c3c43c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
-      "isActive": true,
+      "isActive": false,
       "created_at": "2025-08-28"
     },
     {
@@ -586,32 +438,6 @@
       ],
       "isActive": true,
       "created_at": "2025-08-29"
-    },
-    {
-      "id": "1757422927692",
-      "name": "blue lady",
-      "description": "for exploring",
-      "price": 999.99,
-      "count": 10,
-      "category": "women",
-      "images": [
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.enncoresorts.com%2F%3Fs%3D87426628041350%26mod%3D2b7768fb%26uri%3Dnews.php%253Fid%253D2916903-280%2526name%253Dblue%2Blady%2Beau%2Bde%2Bparfum&psig=AOvVaw1-0FSLHhfRwvAY3-7MEn-j&ust=1757509121202000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPD7l-jdy48DFQAAAAAdAAAAABAS"
-      ],
-      "isActive": true,
-      "created_at": "2025-09-09"
-    },
-    {
-      "id": "1757423071541",
-      "name": "random",
-      "description": "nothinggg",
-      "price": 111.99,
-      "count": 5,
-      "category": "unisex",
-      "images": [
-        "https://images.pexels.com/photos/264950/pexels-photo-264950.jpeg"
-      ],
-      "isActive": true,
-      "created_at": "2025-09-09"
     }
   ]
 }

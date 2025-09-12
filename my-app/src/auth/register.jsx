@@ -41,7 +41,8 @@ export default function Register() {
 
     toast.success("Registered successfully");
     toast.info("please login with username")
-    navigate("/login");
+    navigate("/login", {replace:true});
+    
   };
 
   return (

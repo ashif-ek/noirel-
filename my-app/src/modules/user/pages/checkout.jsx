@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer"
 import { toast } from "react-toastify";
-// A new helper component to create visually distinct sections for the form.
+
 const FormSection = ({ title, children }) => (
   <section className="bg-gray-900/50 border border-white/10 rounded-lg p-6 md:p-8">
     <h3 className="text-xl font-medium tracking-wide border-b border-white/10 pb-4 mb-6">
@@ -72,7 +72,7 @@ export default function Checkout() {
             <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-8">
               <FormSection title="Shipping Address">
                 <div className="space-y-6">
-                  <InputField label="Full Name" name="fullName" value={shippingDetails.fullName} onChange={handleInputChange} />
+                  <InputField label="Full Name" name="fullName" value={shippingDetails.fullName} onChange={handleInputChange} placeholder="full name"/>
                   <InputField label="Address" name="address" value={shippingDetails.address} onChange={handleInputChange} placeholder="123 Perfume Lane"/>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <InputField label="City" name="city" value={shippingDetails.city} onChange={handleInputChange} placeholder="Scent City" />

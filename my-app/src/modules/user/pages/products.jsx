@@ -198,11 +198,16 @@ export default function Products() {
   const isAddedToCart = selectedProduct ? cart.some(item => item.id === selectedProduct.id) : false;
   const isAddedToWishlist = selectedProduct ? wishlist.some(item => item.id === selectedProduct.id) : false;
 
-  useEffect(() => {
-    Api.get("/products")
-      .then(res => setProducts(res.data))
-      .catch(err => console.error("error", err));
-  }, []);
+useEffect(() => {
+  Api.get("/products")
+    .then(res => {
+      const activeProducts = res.data.filter(p => p.isActive !== false);
+      //use false coz only show non false things 
+      setProducts(activeProducts);
+    })
+    .catch(err => console.error("error", err));
+}, []);
+
 
   // ✅ FIX: Add this useEffect to clean up the body style on unmount
   useEffect(() => {

@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
     if (role === "admin") {
       navigate("/admin");
     } else {
-      navigate("/");
+      navigate("/",{replace:true});
     }
 
     toast.success(`Logged in as ${role}`);
