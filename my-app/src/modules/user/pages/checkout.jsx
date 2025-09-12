@@ -54,7 +54,7 @@ export default function Checkout() {
   };
 
   if (cart.length === 0) {
-    return <Navigate to="/" />;
+    return <Navigate to="/" replace/>;
   }
 
   return (
