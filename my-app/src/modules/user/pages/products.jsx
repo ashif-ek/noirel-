@@ -209,7 +209,7 @@ useEffect(() => {
 }, []);
 
 
-  // ✅ FIX: Add this useEffect to clean up the body style on unmount
+  // Add this useEffect to clean up the body style on unmount
   useEffect(() => {
     // The function returned by useEffect is a cleanup function.
     // It will be called automatically when the component is removed from the screen.

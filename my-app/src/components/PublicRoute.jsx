@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 export default function PublicRoute() {
   const { user } = useAuth();
 
-  // If admin is logged in, never let them see public routes
+  // if admin is logged in then not see gust routes
   if (user?.role === "admin") {
     return <Navigate to="/admin" replace />;
   }

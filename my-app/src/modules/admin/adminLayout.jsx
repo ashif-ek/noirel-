@@ -15,12 +15,11 @@ export default function AdminLayout() {
     { name: "Products", path: "/admin/products", icon: <FiBox className="text-lg" /> },
     { name: "User manage", path: "/admin/users", icon: <FiUsers className="text-lg" /> },
     { name: "user overview", path: "/admin/overview", icon: <FiPieChart className="text-lg" /> },
-    { name: "Settings", path: "/admin/settings", icon: <FiSettings className="text-lg" /> },
+    // { name: "Settings", path: "/admin/settings", icon: <FiSettings className="text-lg" /> },
   ];
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
       <aside 
         className={`bg-white border-r border-gray-200 flex flex-col justify-between transition-all duration-300 ease-in-out ${
           sidebarCollapsed ? "w-20" : "w-64"
@@ -41,7 +40,7 @@ export default function AdminLayout() {
             </button>
           </div>
 
-          {/* Navigation */}
+
           <nav className="mt-6 px-3 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -89,10 +88,7 @@ export default function AdminLayout() {
           </button>
         </div>
       </aside>
-
-      {/* Main content */}
       <main className="flex-1 overflow-auto">
-        {/* Header */}
         <header className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-semibold text-gray-800">
@@ -111,7 +107,7 @@ export default function AdminLayout() {
           </div>
         </header>
         
-        {/* Content Area */}
+
         <div className="p-8">
           <Outlet />
         </div>
@@ -119,6 +115,44 @@ export default function AdminLayout() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

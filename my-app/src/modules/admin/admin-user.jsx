@@ -1,7 +1,4 @@
 
-
-
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Api from "../../auth/api";
@@ -32,7 +29,6 @@ export default function AdminUsers() {
     fetchUsers();
   }, []);
 
-  // Filter users based on search, status, and role
   useEffect(() => {
     let result = users;
     
@@ -55,7 +51,6 @@ export default function AdminUsers() {
     setFilteredUsers(result);
   }, [searchTerm, statusFilter, roleFilter, users]);
 
-  // Get unique roles for filter dropdown
   const roles = [...new Set(users.map(user => user.role))];
 
   return (
@@ -66,10 +61,7 @@ export default function AdminUsers() {
           <h2 className="text-2xl font-semibold text-gray-800">User Management</h2>
           <p className="text-sm text-gray-500 mt-1">Manage registered users and their accounts</p>
         </div>
-        <button className="mt-4 md:mt-0 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-md transition-colors">
-          <FiPlus className="text-lg" />
-          Add User
-        </button>
+ 
       </div>
 
       {/* Filters and Search */}
@@ -187,29 +179,8 @@ export default function AdminUsers() {
         </div>
       )}
 
-      {/* Pagination (if needed) */}
-      {filteredUsers.length > 0 && (
-        <div className="flex items-center justify-between mt-6 bg-white px-4 py-3 rounded-lg border border-gray-200">
-          <div className="text-sm text-gray-700">
-            Showing <span className="font-medium">1</span> to <span className="font-medium">{filteredUsers.length}</span> of{' '}
-            <span className="font-medium">{filteredUsers.length}</span> results
-          </div>
-          <div className="flex space-x-2">
-            <button
-              disabled
-              className="px-3 py-1.5 text-sm font-medium text-gray-500 bg-gray-100 rounded-md cursor-not-allowed"
-            >
-              Previous
-            </button>
-            <button
-              disabled
-              className="px-3 py-1.5 text-sm font-medium text-gray-500 bg-gray-100 rounded-md cursor-not-allowed"
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      )}
+
+
     </div>
   );
 }

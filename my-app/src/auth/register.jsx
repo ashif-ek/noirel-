@@ -14,11 +14,21 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      toast.warn("Password not match");
-      return;
-    }
+if (!name.trim() || !email.trim() || !password.trim()) {
+  toast.warn("fill all field");
+  return;
+}
 
+// const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+// if (!passwordRegex.test(password)) {
+//   toast.warn("Password must be 8+ chars, include uppercase & number");
+//   return;
+// }
+
+if (password !== confirmPassword) {
+  toast.warn("Passwords do not match");
+  return;
+}
     const res = await Api.get("/users", { params: { email } });
     if (res.data.length > 0) {
       toast.warn("Email already registered");
