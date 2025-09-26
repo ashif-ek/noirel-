@@ -47,6 +47,8 @@ function AppWithProviders() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/search" element={<Search />} />
+                <Route path="/ourstory" element={<OurStory />} />
+
             </Route>
 
 <Route element={<ProtectedRoute />}>
@@ -54,7 +56,6 @@ function AppWithProviders() {
     <Route path="/orders" element={<Orders />} />
     <Route path="/whishlist" element={<Whishlist />} />
     <Route path="/profile" element={<Profile />} />
-    <Route path="/ourstory" element={<OurStory />} />
     <Route path="/checkout" element={<Checkout />} />
 </Route>
 
