@@ -30,6 +30,8 @@ import AdminDashboard from "./modules/admin/dashboard";
 import AdminLayout from "./modules/admin/adminLayout";
 import PublicRoute from "./components/PublicRoute";
 import UserOverview from "./modules/admin/userOverview";
+import { SearchProvider } from "./context/searchContext";
+import ProductDetail from "./modules/user/pages/ProductDetail";
 
 function AppWithProviders() {
   return (
@@ -39,6 +41,8 @@ function AppWithProviders() {
       <CartProvider>
         <WishlistProvider>
           <OrderProvider>
+                    <SearchProvider>
+
             {/* to prevent admin access the gust pages */}
           <Routes>
             <Route element={<PublicRoute />}>
@@ -46,6 +50,8 @@ function AppWithProviders() {
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+                    <Route path="/products/:id" element={<ProductDetail />} /> 
+
             <Route path="/search" element={<Search />} />
                 <Route path="/ourstory" element={<OurStory />} />
 
@@ -72,6 +78,8 @@ function AppWithProviders() {
 
             <Route path="*" element={<NotFound />} />
           </Routes>
+                  </SearchProvider>
+
           </OrderProvider> 
         </WishlistProvider>
       </CartProvider>
