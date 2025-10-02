@@ -419,6 +419,39 @@
       "createdAt": "2025-09-12T10:22:05.683Z"
     }
   ],
+
+ "heroSlides": [
+    {
+      "id": 1,
+      "bgImage": "./perfume1.png",
+      "title": "The Essence of",
+      "subtitle": "Timeless Elegance",
+      "description": "Immerse yourself in the artistry of scent. Each fragrance is meticulously crafted to tell a story of luxury, sophistication, and unforgettable moments."
+    },
+    {
+      "id": 2,
+      "bgImage": "./perfume2.png",
+      "title": "Crafted from",
+      "subtitle": "Rare Ingredients",
+      "description": "Sourced from the world's most exclusive regions, our ingredients create an olfactory experience unlike any other."
+    },
+    {
+      "id": 3,
+      "bgImage": "./perfume3.png",
+      "title": "An Olfactory",
+      "subtitle": "Masterpiece",
+      "description": "Experience the perfect harmony of top, middle and base notes that evolve throughout your day."
+    },
+    {
+      "id": 4,
+      "bgImage": "./perfume4.png",
+      "title": "Essence of Elegance",
+      "subtitle": "Redefining Luxury",
+      "description": "Immerse yourself in an exquisite blend of rare ingredients, crafted for timeless sophistication."
+    }
+  ],
+
+
   "products": [
     {
       "id": "202",
