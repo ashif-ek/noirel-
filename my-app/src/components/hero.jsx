@@ -419,7 +419,6 @@
 
 
 
-
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import Api from "../auth/api";
@@ -461,7 +460,58 @@ const initialSlides = [
 ];
 
 
-// --- Memoized Child Components for Performance (No changes needed here) ---
+// --- ✨ NEW: Shimmering Loader Component ---
+const ShimmerLoader = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Blurred Background from the first initial slide */}
+      <div
+        className="absolute inset-0 bg-cover bg-center blur-lg scale-105"
+        style={{ backgroundImage: `url(${initialSlides[0].bgImage})` }}
+      />
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* Placeholder content mimicking the final layout */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 xl:gap-24 relative z-20 w-full">
+        {/* Text Placeholders */}
+        <div className="flex-1 w-full space-y-5">
+          <div className="h-4 bg-white/10 rounded w-1/3 relative overflow-hidden">
+            <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+          <div className="h-10 bg-white/10 rounded w-4/5 relative overflow-hidden">
+             <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+          <div className="h-10 bg-white/10 rounded w-2/3 relative overflow-hidden">
+             <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+          <div className="h-6 bg-white/10 rounded w-full relative overflow-hidden">
+             <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+          <div className="h-6 bg-white/10 rounded w-3/4 relative overflow-hidden">
+             <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+          <div className="flex gap-4 pt-4">
+             <div className="h-12 w-36 bg-white/20 rounded-sm relative overflow-hidden">
+                <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+             </div>
+             <div className="h-12 w-36 bg-white/10 rounded-sm relative overflow-hidden">
+                <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+             </div>
+          </div>
+        </div>
+        {/* Image Placeholder */}
+        <div className="flex-1 flex justify-center w-full max-w-xs sm:max-w-sm md:max-w-md">
+           <div className="w-full h-80 bg-white/10 rounded-lg relative overflow-hidden">
+             <div className="absolute inset-0 transform -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+// --- Memoized Child Components (No changes needed here) ---
 
 const SlideBackgrounds = React.memo(({ slides, currentSlide }) => (
   <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out">
@@ -546,7 +596,7 @@ export default function Hero() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch data with axios, with fallback logic
+  // axios, with fallback logic
   useEffect(() => {
     const fetchSlides = async () => {
       try {
@@ -554,10 +604,10 @@ export default function Hero() {
         setSlides(response.data);
       } catch (error) {
         console.error("Failed to fetch hero slides, loading initial data:", error);
-        // *** CHANGE: Set state to fallback data on error ***
         setSlides(initialSlides);
       } finally {
-        setIsLoading(false);
+        // Use a small timeout to prevent jarring flash of content
+        setTimeout(() => setIsLoading(false), 500); 
       }
     };
     fetchSlides();
@@ -602,11 +652,11 @@ export default function Hero() {
     if (index !== currentSlide) changeSlide(index);
   }, [changeSlide, currentSlide]);
 
+  // --- ✨ RENDER THE NEW LOADER ---
   if (isLoading) {
-    return <section className="relative min-h-screen flex items-center justify-center bg-gray-900 text-white">Loading...</section>;
+    return <ShimmerLoader />;
   }
   
-  // This check now primarily handles the case where the API successfully returns an empty array.
   if (!slides.length) {
     return <section className="relative min-h-screen flex items-center justify-center bg-gray-900 text-white">Content is currently unavailable.</section>;
   }

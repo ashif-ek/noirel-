@@ -189,7 +189,7 @@ export function OrderProvider({ children }) {
 
        clearCart();
 
-       toast.success("Order placed successfully! 🎉");
+       toast.success("Order placed successfully! ");
        navigate("/order-success");
      } catch (err) {
        console.error("Failed to place order:", err);
