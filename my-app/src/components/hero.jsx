@@ -652,7 +652,7 @@ export default function Hero() {
     if (index !== currentSlide) changeSlide(index);
   }, [changeSlide, currentSlide]);
 
-  // --- ✨ RENDER THE NEW LOADER ---
+  // --- RENDER THE NEW LOADER ---
   if (isLoading) {
     return <ShimmerLoader />;
   }
