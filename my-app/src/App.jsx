@@ -14,7 +14,6 @@ import { AuthProvider } from "./context/AuthContext";
 import { WishlistProvider } from "./context/WishlistContext";
 import { OrderProvider } from "./context/OrderContext";
 
-
 import { ToastContainer } from "react-toastify";
 import Profile from "./modules/user/pages/profile";
 import Search from "./modules/user/pages/search";
@@ -41,46 +40,42 @@ function AppWithProviders() {
       <CartProvider>
         <WishlistProvider>
           <OrderProvider>
-                    <SearchProvider>
+            <SearchProvider>
+              {/* to prevent admin access the gust pages */}
+              <Routes>
+                <Route element={<PublicRoute />}>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:id" element={<ProductDetail />} />
 
-            {/* to prevent admin access the gust pages */}
-          <Routes>
-            <Route element={<PublicRoute />}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-                    <Route path="/products/:id" element={<ProductDetail />} /> 
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/ourstory" element={<OurStory />} />
+                </Route>
 
-            <Route path="/search" element={<Search />} />
-                <Route path="/ourstory" element={<OurStory />} />
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/carts" element={<Carts />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/whishlist" element={<Whishlist />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                </Route>
 
-            </Route>
+                <Route path="/admin" element={<AdminRoute />}>
+                  <Route element={<AdminLayout />}>
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="overview" element={<UserOverview />} />
+                    <Route path="products" element={<AdminProducts />} />
+                    <Route path="users" element={<AdminUsers />} />
+                    <Route path="users/:id" element={<UserDetails />} />
+                  </Route>
+                </Route>
 
-<Route element={<ProtectedRoute />}>
-    <Route path="/carts" element={<Carts />} />
-    <Route path="/orders" element={<Orders />} />
-    <Route path="/whishlist" element={<Whishlist />} />
-    <Route path="/profile" element={<Profile />} />
-    <Route path="/checkout" element={<Checkout />} />
-</Route>
-
-
- <Route path="/admin" element={<AdminRoute />}>
-  <Route element={<AdminLayout />}>
-    <Route index element={<AdminDashboard />} />
-    <Route path="overview" element={<UserOverview />} />
-    <Route path="products" element={<AdminProducts />} />
-    <Route path="users" element={<AdminUsers />} />
-    <Route path="users/:id" element={<UserDetails />} />
-  </Route>
-</Route>
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-                  </SearchProvider>
-
-          </OrderProvider> 
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </SearchProvider>
+          </OrderProvider>
         </WishlistProvider>
       </CartProvider>
     </>
