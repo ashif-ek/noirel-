@@ -29,7 +29,7 @@ import AdminDashboard from "./modules/admin/dashboard";
 import AdminLayout from "./modules/admin/adminLayout";
 import PublicRoute from "./components/PublicRoute";
 import UserOverview from "./modules/admin/userOverview";
-import { SearchProvider } from "./context/searchContext";
+import { SearchProvider } from "./context/SearchContext";
 import ProductDetail from "./modules/user/pages/ProductDetail";
 
 function AppWithProviders() {
