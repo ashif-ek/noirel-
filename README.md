@@ -28,7 +28,7 @@ NOIRÉL is a modern, high-performance e-commerce application built to deliver a 
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/noirel.git
+    git clone https://github.com/ashif-ek/noirel-ecommerce.git
     cd noirel
     ```
 
@@ -71,3 +71,4 @@ We use a centralized Context architecture optimized for performance:
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 4.  Push to the branch (`git push origin feature/AmazingFeature`).
 5.  Open a Pull Request.
+
